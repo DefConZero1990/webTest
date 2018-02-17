@@ -1,0 +1,43 @@
+\documentclass[10pt] {article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{color}
+\usepackage {parskip}
+\pagestyle{empty}
+
+\author{Felix Niederwolfsgruber}
+\title{Orders}
+
+\begin {document}
+%\texdbconnection{MSSQL,localhost,user,passwd,db}
+\section {Order Data}
+\subsection {Customer Data}
+%\texdbdef{##userdata}{SELECT Username, Name, Adress, ZIPCode, City from User_Data WHERE U.UserID = L.UserID }{##Username,##Name,##Adress, ##ZIPCode, ##City}
+Username: %\texdbfor{##userdata}{##Username\\} 
+\\
+Name: %\texdbfor{##userdata}{##Name\\} 
+\\
+Adress: %\texdbfor{##userdata}{##Adress\\} 
+\\
+ZIP Code: %\texdbfor{##userdata}{##ZIPCode\\} 
+\\
+City: %\texdbfor{##userdata}{##City\\} 
+\\
+\\
+\subsection {Order details}
+%\texdbdef{##Ordertable}{SELECT O.OrderID,O.OrderDate, A.ArticleDescription, O.Amount, O.ArticleSumTotal, O.OrderSumTotal from O. Orders inner join A.Articles where O.UserID = U.UserID and O.OrderID = Eingabe }{##OrderID,##OrderDate,##ArticleDescription,##Amount, ##ArticleSumTotal, ##OrderSumTotal}
+Details of the order: %\texdbfor{##Ordertable}{##OrderID}
+,placed on the:  
+%\texdbfor{##Ordertable}{##OrderDate} 
+\\
+\\
+\begin {tabular} {|c|c|c|}
+\hline Article description&Amount&Sum\\ \hline
+%\texdbfor{##Ordertable}{##ArticleDesription&##Amount&##ArticleSumTotal\\}
+\end {tabular}
+\\
+\\
+TOTAL: %\texdbfor{##Ordertable}{##OrderSumTotal}
+
+
+\end {document}
