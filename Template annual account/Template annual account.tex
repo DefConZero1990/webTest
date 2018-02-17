@@ -1,0 +1,39 @@
+\documentclass[10pt] {article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{color}
+\usepackage {parskip}
+\pagestyle{empty}
+
+\author{Felix Niederwolfsgruber}
+\title{Annual Account}
+
+\begin {document}
+%\texdbconnection{MSSQL,localhost,user,passwd,db}
+\section {Annual Account}
+\subsection {Customer Data}
+%\texdbdef{##userdata}{SELECT Username, Name, Adress, ZIPCode, City from User_Data WHERE U.UserID = L.UserID }{##Username,##Name,##Adress, ##ZIPCode, ##City}
+Username: %\texdbfor{##userdata}{##Username\\} 
+\\
+Name: %\texdbfor{##userdata}{##Name\\} 
+\\
+Adress: %\texdbfor{##userdata}{##Adress\\} 
+\\
+ZIP Code: %\texdbfor{##userdata}{##ZIPCode\\} 
+\\
+City: %\texdbfor{##userdata}{##City\\} 
+\\
+\\
+\subsection {Account details}
+%\texdbdef{##Ordertable}{SELECT OrderID, YEAR(DateOfDelivery), OrderSumTotal, SUM(OrderSumTotal) AS TOTAL from Orders where O.UserID = U.UserID and }{##OrderID,##Year,##OrderSumTotal,##TOTAL}
+Details of the year: %\texdbfor{##Ordertable}{##Year\\} 
+\\
+\\
+\begin{tabular} {|c|}
+\hline Sum of Order\\ \hline
+%\texdbfor{##Ordertable}{##OrderSumTotal\\}
+\end {tabular}
+\\
+\\
+TOTAL: %\texdbfor{##Ordertable}{##TOTAL\\}
+\end {document}
